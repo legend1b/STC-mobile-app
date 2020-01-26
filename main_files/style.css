@@ -1,0 +1,28 @@
+*{
+	margin:auto;
+	padding:0;	
+	}
+p{
+	font-size:12px;
+}
+tr{
+	font-size:12px;
+}
+#header{
+	background-color:#01B1E2;
+	height:49px;
+	width:100%;
+	z-index:10000;
+	position:fixed;
+}
+#himg{
+	margin-bottom:-6px;
+	border-radius:3px;
+	float:left;
+	}
+#himg2{
+	margin-top:-33px;
+	margin-right:10px;
+	float:right;
+	}
+

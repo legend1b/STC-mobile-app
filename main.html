@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html><head>
+    <title>Blank Cordova Mobile App Project Template (Lite)</title>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link href="css/materialize.css" rel="stylesheet">
+	<link href="css/css.css" rel="stylesheet">
+    <style>
+        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
+        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
+		*{
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none; 
+	margin:auto;
+	padding:0;
+	
+	}
+        body{
+        	
+			background-image: url("images/oo2.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-attachment: fixed;
+	margin:auto;
+        }
+		#loader{
+			width:100%;
+			height:100%;
+			position:absolute;
+			z-index:10001;
+			background-color:#ffffff;
+			opacity:0.8;
+			}
+		#loader2{
+			width:100%;
+			height:100%;
+			position:absolute;
+			z-index:10001;
+			background-color:#ffffff;
+			opacity:0.8;
+			}
+    </style>
+    <script src="cordova.js"></script>	
+</head>
+
+<body onload="init()">
+	
+	<div id="loader2" style="display:none;">
+		<center>
+			<img style="margin-top:55%;" src="main_files/wheel.gif" width="auto" height="40">
+		</center>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="main_files/javascript.js"></script>
+	<script>  
+	$(document).ready(function(){
+		$('select').material_select();
+		$('.button-collapse').sideNav({menuWidth: 240 ,edge: 'left',closeOnClick: true});
+	});
+	</script>
+	
+	<header id="header">
+		<div data-activates="slide-out" class="button-collapse himg waves-effect waves-light" id="himg" height="20" width="20">
+		<img src="main_files/appbar.png" width="" height="30" style="margin-top:17px;margin-left:10px;">		
+		</div>	
+		<p style="color:#FFFFFF;margin-top:-35px;font-size:20px;text-align:center;">Swift Token</p>
+
+	</header><br><br><br><br>
+	<ul style="width: 240px; transform: translateX(-100%);" id="slide-out" class="side-nav">
+	  <li><a href="#%21"><span style="color:#01B1E2;font-size:14px;padding-left:10px;">Swift Coin</span></a></li><br>
+	  <br><br>
+	  <center>
+			<img src="logo.png" width="auto" height="70px">
+	  </center><br><br>
+	  <li style="border-bottom:2px solid #01B1E2;border-top:2px solid #01B1E2;" class="hideside si"><a href="javascript:;" class=""><img style="margin-top:13px;position:absolute;" src="main_files/stud.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">Balance</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li>
+	  <li style="border-bottom:2px solid #01B1E2;"><a href="javascript:;" class="hideside res"><img style="margin-top:13px;position:absolute;" src="main_files/result.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">Send</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li>
+	  <li style="border-bottom:2px solid #01B1E2;"><a href="javascript:;" class="hideside fee"><img style="margin-top:13px;position:absolute;" src="main_files/fee.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">Recieve</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li>
+	  <li style="border-bottom:2px solid #01B1E2;"><a href="javascript:;" class="hideside att"><img style="margin-top:13px;position:absolute;" src="main_files/att.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">History</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li>
+	  <li style="border-bottom:2px solid #01B1E2;"><a href="javascript:;" class="hideside eve"><img style="margin-top:13px;position:absolute;" src="main_files/event.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">Settings</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li>
+	  <li style="border-bottom:2px solid #01B1E2;"><a href="javascript:;" class="hideside msg"><img style="margin-top:13px;position:absolute;" src="main_files/inbox.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">About Us</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li>
+	  <li style="border-bottom:2px solid #01B1E2;"><a href="javascript:;" class="hideside sfa"><img style="margin-top:13px;position:absolute;" src="main_files/send.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">Contact support</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li>
+	 
+    </ul>
+<center>
+<!--div class="row"><div class="col-lg-4"></div><div class="col-lg-4"><div style="margin-top:-75px;position:relative;width:97px;height:97px;background:url(main_files/studd.png);background-size: 100% 100%;background-repeat: no-repeat;background-color:#FFFFFF;border:4px solid #01B1E2;border-radius:100%;"></div></div><div class="col-lg-4"></div></div-->	
+<div class="container" id="studentinfo" style="">
+	<ul id="tabs-swipe-demo" class="tabs">
+    <li class="tab col s3 rec"><a class="recieved" href="#test-swipe-1" style="color:#00AFEF;">Recieve</a></li>
+    <li class="tab col s3"><a class="active balanced" href="#test-swipe-2" style="color:#00AFEF;">Balance</a></li>
+    <li class="tab col s3"><a class="sended" href="#test-swipe-3" style="color:#00AFEF;">Send</a></li>
+  </ul>
+  <div id="test-swipe-1" class="col s12 "><br><br><br>
+  	<h6 style="color:#00AFEF;">Your Address</h6>
+  	<p id="walletaddress"></p>
+  	<div style="width:300px; height:300px;" id="placeHolder"></div>
+  </div>
+  <div id="test-swipe-2" class="col s12 "><br><br><br>
+  		<div id="balance">
+  			<h4 style="color:white; font-size:22px;padding-top:30px;">0.0</h4>
+  			<h4 style="color:white; font-size:22px;margin-top:-15px;">STC</h4>
+  		</div><br><br><br>
+
+  		<h6 style="color:#00AFEF;">Transactions</h6>
+
+      <table class="striped centered ">
+        <thead>
+          <tr>
+              <th>No</th>
+              <th>Status</th>
+              <th>Coin</th>
+              <th>Date</th>
+              <th>Id</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Jonathan</td>
+            <td>Lollipop</td>
+            <td>$7.00</td>
+            <td>$0.87</td>
+            <td>$0.87</td>
+          </tr>
+        </tbody>
+      </table>
+            
+
+
+  </div>
+  <div id="test-swipe-3" class="col s12 ">
+  	<br><br><br>
+  		<div id="balance">
+  			<h4 style="color:white; font-size:22px;padding-top:30px;">0.0</h4>
+  			<h4 style="color:white; font-size:22px;margin-top:-15px;">STC</h4>
+  		</div>
+  	<br><br><br>
+  	<h6 style="color:#00AFEF;">Transfer STC</h6>
+  	<div class="row">
+  		
+    <form class="col s11">
+      <div class="row">
+        <div class="input-field col s10">
+          <input id="raddy" style ="border-bottom:2px solid #00AFEF;" type="text" palceholder="Recipient Address" class="validate">
+          <label for="raddy" style ="text-align:left; color:#00AFEF;">Recipient Address</label>
+        </div>
+        <div class="col s2">
+          <img src="main_files/qr.png" width="50" class="fillin"/>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="last_name" style ="border-bottom:2px solid #00AFEF;" type="text" class="validate">
+          <label for="last_name" style ="text-align:left; color:#00AFEF;">Amount</label>
+        </div>
+      </div>
+      <input id='save3' value='Send' type='button' onclick='sendstc()'/>
+    </form>
+  </div>
+  </div>
+</div>
+</center>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<center>
+	<div id="result" style="display:none;"><br>
+	<div class="divider"></div>
+	<p style="color:#01B1E2;text-size:20px;"><b>RESULTS</b></p>
+	<div class="divider"></div>
+<div class="row"><div class="col s5 m5 l5"><p><b>Session:</b></p></div><div class="col s7 m7 l7"><p style="color:#01B1E2;word-wrap: break-word;">first term, 2017</p></div><b>Result</b><p style="color:#01B1E2;word-wrap: break-word;max-width:300px;">English         ( )   Mathematics   ( )   Chemistry             ( )
+Physics         ( )   Biology           ( )    Agric. sc              ( )
+Geograph     ( )   Economics      ( )    Further Math.      ( )
+Government ( )   Literature        ( )    Religious Lang    ( )
+Music            ( )  Commerce       ( )    Accounting          ( )</p><div class="divider"></div></div><div class="row"></div>		
+	</div>
+</center>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<center>
+	<div id="eve" style="display:none;"><br>
+	<div class="divider"></div>
+	<p style="color:#01B1E2;text-size:20px;"><b>SCHOOL FEE</b></p>
+	<div class="divider"></div>
+<table class="responsive-table"><thead>
+      <tr>
+        <th>SESSION</th>
+        <th>FEE PAID</th>
+        <th>BALANCE</th>
+      </tr>
+    </thead><tbody><tr><td><p style="color:#01B1E2;word-wrap: break-word;">first term, 2017</p></td><td><p style="color:#01B1E2;word-wrap: break-word;">N 8000</p></td><td><p style="color:#01B1E2;word-wrap: break-word;">N 2000</p></td></tr></tbody></table>	</div>
+</center>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<center>
+	<div id="msg" style="display:none"><br>
+	<p style="color:#01B1E2;text-size:25px;"><b>About STC</b></p><div class="divider"></div><br>
+	<p style="color:;text-size:20px;">SwiftCoinThe Digital assets for Payments</p>
+	<p style="color:;text-size:20px;">It’s the fastest and most scalable digital asset, enabling real-time global payments anywhere in the world.</p>
+	</div>
+	</div>
+</center>	
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<center>
+	<div id="att" style="display:none">
+	<div class="divider"></div><br>
+	<h6 style="color:#00AFEF;">Transaction History</h6>
+
+      <table class="striped centered ">
+        <thead>
+          <tr>
+              <th>No</th>
+              <th>Status</th>
+              <th>Coin</th>
+              <th>Date</th>
+              <th>Id</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Alvin</td>
+            <td>Eclair</td>
+            <td>$0.87</td>
+            <td>$0.87</td>
+            <td>$0.87</td>
+          </tr>
+          <tr>
+            <td>Alan</td>
+            <td>Jellybean</td>
+            <td>$3.76</td>
+            <td>$0.87</td>
+            <td>$0.87</td>
+          </tr>
+          <tr>
+            <td>Jonathan</td>
+            <td>Lollipop</td>
+            <td>$7.00</td>
+            <td>$0.87</td>
+            <td>$0.87</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+</center>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+	<div id="sfa" style="display:none">
+	<div class="divider"></div><br>
+		<center>
+	<p style="color:#01B1E2;text-size:20px;"><b>Contact</b></p>
+		</center>
+	<div class="divider"></div>
+
+
+<script type="text/javascript">
+	document.getElementById("sndmsg").addEventListener("click", function(){
+		
+		var subject = $('#subject').val();
+		var message = $('#message').val();
+		if(subject != '' && message != ''){
+			$('#sndmsg').attr('disabled','disabled');
+		$.ajax({
+			type: "POST",
+			url: "msgadm.php",
+			data: { 
+				subject: subject, message: message
+			}
+			}).success(function(data) {
+				$('#resultter').html(data);
+				var subject = $('#subject').val('');
+				var message = $('#message').val('');
+		   		$('#sndmsg').removeAttr("disabled");
+		   		delay(2000);
+		   		$('#resultter').html(' ');
+
+			});
+		}
+		else{
+			alert('fill all the fields')
+		}
+		});
+	});
+</script>
+			<center><br><br>
+				<p>Email: admin@dopropertybits.com</p>
+				
+			</center>
+	</div>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<br><br>
+<script src="js/logad.js" type="text/javascript"></script>
+<script src="js/qrcode.js" type="text/javascript"></script>
+<div class="hiddendiv common"></div><div style="left: 0px;" class="drag-target"></div></body></html>
