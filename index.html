@@ -25,10 +25,10 @@
     </style>
     <script src="cordova.js"></script>
 	<script>
-	window.addEventListener('load',function(){
-		var loader = document.getElementById("loader");
-		document.body.removeChild(loader);
-	});
+	document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    StatusBar.backgroundColorByHexString("#ffffff");
+	}
 	</script>
 	<script src="js/javascript.js"></script>
 </head>
