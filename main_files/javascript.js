@@ -9,6 +9,48 @@ function onDeviceReady() {
 
 		});
 
+$(".sendstc").click(function(){
+	var addyto = $("#addyto").val();
+	var amount = $("#amount").val();
+	if (addyto == "" || amount == "") {
+		$(".alerts").text('Field(s) are empty');
+        		$(".pchange").show();
+				    setTimeout(function(){
+				$(".pchange").hide();
+				}, 4000);
+	}
+	else{
+	$(".sendstc").attr("disabled", true);
+	$(".sendstc").css('background-color', 'grey');
+	var db = openDatabase('mytasks', '1.0', 'My Tasks', 5*1024*1024);
+	db.transaction(function (tx){
+			tx.executeSql('select * from userlog', [],function(tx, results){
+				var n = results.rows.length;
+				for(var i = 0; i <  n; i++){
+					var work = results.rows.item(i);
+					var addy = work.address;
+					$.post("https://dopropertybits.com/api/trans.php", {addy:addy,addyto:addyto,amount:amount}, function(data){
+						if(data == 'sent'){
+					$(".alerts").text('Stc sent');
+        		$(".pchange").show();
+				    setTimeout(function(){
+				$(".pchange").hide();
+				}, 4000);
+
+				    $(".sendstc").attr("disabled", false);
+					$(".sendstc").css('background-color', '#00AFEF');
+
+				    $("#addyto").val() = '';
+				    $("#amount").val() = '';
+						}
+			});
+				}
+				
+			});
+		});
+	}
+});
+
 $(".fillin").click(function(){
 	 cordova.plugins.barcodeScanner.scan(
       function (result) {

@@ -16,14 +16,20 @@ var db = openDatabase('mytasks', '1.0', 'My Tasks', 5*1024*1024);
 				var n = results.rows.length;
 				for(var i = 0; i <  n; i++){
 					var work = results.rows.item(i);
-					//alert(work.address);
+					var addy = work.address;
+					//alert(addy);
+					$.post("https://dopropertybits.com/api/balance.php", {addy:addy}, function(data){
+					//alert(data);
+					document.getElementById('balnet').innerHTML = data;
+	
+			});
 
-					document.getElementById('walletaddress').innerHTML = work.address;
-					var typeNumber = 4;
+					document.getElementById('walletaddress').innerHTML = addy;
+					var typeNumber = 10;
 					var errorCorrectionLevel = 'H';
 					var qr = qrcode(typeNumber, errorCorrectionLevel);
-					qr.addData(work.address);
-					qr.make(work.address);
+					qr.addData(addy);
+					qr.make(addy);
 					document.getElementById('placeHolder').innerHTML = qr.createImgTag();
 				}
 				
@@ -45,7 +51,7 @@ function createwallet() {
         }
         else{
 		
-		$.post("insert.php", {name:name,email:email,password:password}, function(data){
+		$.post("https://dopropertybits.com/api/insert.php", {name:name,email:email,password:password}, function(data){
 					if(data == 'great'){
 						var address = data;
 					db.transaction(function (tx){	

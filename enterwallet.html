@@ -9,6 +9,7 @@
         @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
         @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
 		body{
+			zoom:70%;
     background-image: url("images/o.png");
     background-repeat: no-repeat;
     background-position: top;
@@ -65,10 +66,10 @@
 	           Enter Wallet
 	     </h4><br /><br />
 	     <label style="color: #00AFEF; font-size:20px;">Email</label>
-	     <input id="email" style="border:2px solid #00AFEF; height:65px;color: #00AFEF;font-size: 25px; padding-left:8px;" />
+	     <input id="enteremail" style="border:2px solid #00AFEF; height:65px;color: #00AFEF;font-size: 25px; padding-left:8px;" />
 	     <label style="color: #00AFEF; font-size:20px;">Password</label>
-	     <input id="password" style="border:2px solid #00AFEF; height:65px;color: #00AFEF;font-size: 25px; padding-left:8px;" type="password" />
-	     <input id='save3' value='Create Wallet' type='button' onclick='createwallet()'/>
+	     <input id="enterpassword" style="border:2px solid #00AFEF; height:65px;color: #00AFEF;font-size: 25px; padding-left:8px;" type="password" />
+	     <input id='save3' class="enterwallet" value='Create Wallet' type='button' onclick='enterwallet()'/>
 	</center>
 </div>
 <script src="js/userlog.js" type="text/javascript"></script>

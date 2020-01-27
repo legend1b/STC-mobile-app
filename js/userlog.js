@@ -46,9 +46,24 @@ function createwallet() {
 				}, 4000); 
         }
         else{
-		
-		$.post("insert.php", {name:name,email:email,password:password}, function(data){
-					if(data == 'great'){
+		$(".createwallet").attr("disabled", true);
+		$(".createwallet").css('background-color', 'grey');
+		$.post("https://dopropertybits.com/api/insert.php", {name:name,email:email,password:password}, function(data){
+
+					if(data == 'wrong'){
+						document.getElementById('name').value = '';
+						document.getElementById('email').value = '';
+						document.getElementById('password').value = '';
+						$(".createwallet").attr("disabled", false);
+					$(".createwallet").css('background-color', '#00AFEF');
+						$(".alerts").text('Email exists');
+        		$(".pchange").show();
+				    setTimeout(function(){
+				$(".pchange").hide();
+				}, 4000); 
+			$("#cent").fadeOut("slow");   
+					}
+						else{
 						var address = data;
 					db.transaction(function (tx){	
 tx.executeSql('insert into userlog(name, email, password, address) values(?, ?, ?, ?)', [name, email, password, address], displayAll());
@@ -57,12 +72,53 @@ tx.executeSql('insert into userlog(name, email, password, address) values(?, ?, 
 	}
 	
 });
-    $(".alerts").text('Added');
+    	  
+        }
+	
+}
+function enterwallet() {
+	
+	var enteremail = document.getElementById('enteremail').value;
+	var enterpassword = document.getElementById('enterpassword').value;
+	
+        if(enteremail == ""|| enterpassword == ""){
+        	$(".alerts").text('Field(s) are empty');
         		$(".pchange").show();
 				    setTimeout(function(){
 				$(".pchange").hide();
 				}, 4000); 
-			$("#cent").fadeOut("slow");   
+        }
+        else{
+		$(".enterwallet").attr("disabled", true);
+	$(".enterwallet").css('background-color', 'grey');
+		$.post("https://dopropertybits.com/api/login.php", {enteremail:enteremail,enterpassword:enterpassword}, function(data){
+
+					if(data == 'wrong'){
+						$(".alerts").text('Error authenticating');
+        		$(".pchange").show();
+				    setTimeout(function(){
+				$(".pchange").hide();
+				}, 4000); 
+			$("#cent").fadeOut("slow");
+			$(".enterwallet").attr("disabled", false);
+			$(".enterwallet").css('background-color', '#00AFEF');
+			   document.getElementById('enteremail').value = '';
+				document.getElementById('enterpassword').value = '';
+					}
+						else{
+						var details = data.split(" ");
+						var namedet = details[0];
+						var emaildet = details[1];
+						var passworddet = details[2];
+						var addressdet = details[3];
+
+					db.transaction(function (tx){	
+tx.executeSql('insert into userlog(name, email, password, address) values(?, ?, ?, ?)', [namedet, emaildet, passworddet, addressdet], displayAll());
+					});
+				location.replace("main.html");
+	}
+	
+});  
         }
 	
 }

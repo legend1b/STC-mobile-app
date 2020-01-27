@@ -25,3 +25,11 @@ var db = openDatabase('mytasks', '1.0', 'My Tasks', 5*1024*1024);
 		});
 	}
 	displayAll();
+
+	$(".createwalletgo").click(function() {
+		location.replace("createwallet.html");
+	});
+
+	$(".enterwalletgo").click(function() {
+		location.replace("enterwallet.html");
+	});
