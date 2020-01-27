@@ -1,7 +1,7 @@
 $(document).ready(function(){
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-    StatusBar.backgroundColorByHexString("#0695E9");
+    StatusBar.backgroundColorByHexString("#045191");
 	}
 		$(".loads").click(function(){
 

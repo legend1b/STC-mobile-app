@@ -1,3 +1,7 @@
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    StatusBar.backgroundColorByHexString("#045191");
+	}
 var db = openDatabase('mytasks', '1.0', 'My Tasks', 5*1024*1024);
 	
 
