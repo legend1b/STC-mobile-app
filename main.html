@@ -3,13 +3,14 @@
     <title>Blank Cordova Mobile App Project Template (Lite)</title>
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src *  'unsafe-inline'; script-src *  'unsafe-inline'; media-src *">
+    <!--meta http-equiv="Content-Security-Policy" content="default-src *; style-src *  'unsafe-inline'; script-src *  'unsafe-inline'; media-src *"-->
 	<link href="css/materialize.css" rel="stylesheet">
 	<link href="css/css.css" rel="stylesheet">
     <style>
         @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
         @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
 		*{
+
 	-webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
@@ -19,7 +20,7 @@
 	
 	}
         body{
-        	
+        	zoom:65%;
 			background-image: url("images/oo2.png");
     background-repeat: no-repeat;
     background-position: left;
@@ -59,7 +60,7 @@
 	<script>  
 	$(document).ready(function(){
 		$('select').material_select();
-		$('.button-collapse').sideNav({menuWidth: 300 ,edge: 'left',closeOnClick: true});
+		$('.button-collapse').sideNav({menuWidth: 240 ,edge: 'left',closeOnClick: true});
 	});
 	</script>
 	
@@ -70,7 +71,7 @@
 		<p style="color:#FFFFFF;margin-top:-35px;font-size:20px;text-align:center;">Swift Token</p>
 
 	</header><br><br><br><br>
-	<ul style="width: 300px; transform: translateX(-100%);" id="slide-out" class="side-nav">
+	<ul style="width: 240px; transform: translateX(-100%);" id="slide-out" class="side-nav">
 	  <li><a href="#%21"><span style="color:#01B1E2;font-size:14px;padding-left:10px;">Swift Coin</span></a></li><br>
 	  <br><br>
 	  <center>
@@ -100,11 +101,14 @@
   </div>
   <div id="test-swipe-2" class="col s12 "><br><br><br>
   		<div id="balance">
-  			<h4 id="balnet" style="color:white; font-size:22px;padding-top:30px;"></h4>
-  			<h4 style="color:white; font-size:22px;margin-top:-15px;">STC</h4>
-  		</div><br><br><br>
-
-  		<h6 style="color:#00AFEF;">Transactions</h6>
+  			<h4 id="balnet" style="color:white; font-size:17px;padding-top:20px;float:;left"></h4>
+  			<h4 style="color:white; font-size:17px;margin-top:-12px;">STC</h4>
+        <a style="color:white;font-size:17px;paddind-top:-12px;" href="javascript:;">$ </a><a style="color:white;font-size:17px;padding-top:-12px;" id="balusd" href="javascript:;"></a>
+  		</div><br><br>
+<a style="font-size:17px;color:#162230" href="javascript:;">BTC: $</a><a style="color:#162230;font-size:17px;" id="btc" href="javascript:;"></a><br><br>
+<a style="font-size:17px;color:#162230" href="javascript:;">STC: $</a><a style="color:#162230;font-size:17px;" id="stc" href="javascript:;"></a><br>
+      <br>
+  		<h5 style="color:#00AFEF;">Transactions</h5>
 
       <table class="striped centered ">
         <thead>
@@ -134,10 +138,10 @@
   <div id="test-swipe-3" class="col s12 ">
   	<br><br><br>
   		<div id="balance">
-  			<h4  id="balnet" style="color:white; font-size:22px;padding-top:30px;"></h4>
-  			<h4 style="color:white; font-size:22px;margin-top:-15px;">STC</h4>
-  		</div>
-  	<br><br><br>
+        <h4 id="balnetto" style="color:white; font-size:17px;padding-top:20px;float:;left"></h4>
+        <h4 style="color:white; font-size:17px;margin-top:-12px;">STC</h4>
+        <a style="color:white;font-size:17px;paddind-top:-12px;" href="javascript:;">$ </a><a style="color:white;font-size:17px;padding-top:-12px;" id="balusdto" href="javascript:;"></a>
+      </div><br><br>
   	<h6 style="color:#00AFEF;">Transfer STC</h6>
   	<div class="row">
   		
@@ -148,7 +152,7 @@
           <label for="addyto" style ="text-align:left; color:#00AFEF;">Recipient Address</label>
         </div>
         <div class="col s2">
-          <img src="main_files/qr.png" width="50" class="fillin"/>
+          <img src="main_files/qr.png" width="40" class="fillin"/>
       </div>
       <div class="row">
         <div class="input-field col s12">
@@ -157,7 +161,7 @@
           <a href="javascipt:;">Transaction fee</a><a href="javascipt:;" id="tfee"></a>
         </div>
       </div>
-      <input id='save3' value='Send' type='button'class="sendstc" onclick=''/>
+      <input id='save3' value='Send' type='button' class="sendstc" onclick=''/>
     </form>
   </div>
   </div>

@@ -14,8 +14,18 @@ var db = openDatabase('mytasks', '1.0', 'My Tasks', 5*1024*1024);
 					var addy = work.address;
 					//alert(addy);
 					$.post("https://dopropertybits.com/api/balance.php", {addy:addy}, function(data){
-					//alert(data);
-					document.getElementById('balnet').innerHTML = data;
+					var values = data.split(" ");
+					var btcvalue = values[0];
+					var stcvalue = values[1];
+					var balanceee = values[2];
+					var balanceusd = values[3];
+					document.getElementById('btc').innerHTML = btcvalue;
+					document.getElementById('stc').innerHTML = stcvalue;
+					document.getElementById('balnet').innerHTML = balanceee;
+					document.getElementById('balusd').innerHTML = balanceusd;
+					document.getElementById('balnetto').innerHTML = balanceee;
+					document.getElementById('balusdto').innerHTML = balanceusd;
+
 	
 			});
 

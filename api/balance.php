@@ -14,9 +14,19 @@ $conn = new mysqli("localhost", 'doprhorl_user', 'Olayinka811@' , 'doprhorl_user
 if(isset($_POST['addy'])){
 $addresss = $_POST['addy'];
 $balance = $block_io->get_address_balance(array('addresses' => $addresss));
+$value = $block_io->get_current_price(array('price_base' => 'USD'));
  $realbalance = $balance->balances->available_balance;
  $realAvail = $realbalance / 4;
- echo round($realAvail, 2);
+
+$btcvalue = $value->data->prices[0]->price;
+
+$stcvalue = $btcvalue / 4;
+
+$realAvailok = round($realAvail, 2);
+
+$realAvailokusd = $realAvailok * $stcvalue;
+
+echo $btcvalue." ".$stcvalue." ".$realAvailok." ".$realAvailokusd;
 }
 
 ?>
