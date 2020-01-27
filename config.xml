@@ -21,13 +21,13 @@
   <!-- We'll include the Barcode plugin as an example -->
   <plugin name="cordova-plugin-statusbar" spec="~2.4.1" source="npm"/>
   <plugin name="phonegap-plugin-barcodescanner" />
-  <gap:plugin name="cordova-plugin-whitelist" source="npm" />
+  <plugin name="cordova-plugin-whitelist" source="npm" />
   <preference name="android-build-tool" value="gradle" />
   <preference name="StatusBarOverlaysWebView" value="false" />
   <preference name="StatusBarStyle" value="lightcontent" />
 
-<allow-navigation href="http://*/*" />
-<allow-intent href="https://*/*" />
+<allow-navigation href="*" />
+<allow-intent href="*" />
 <access origin="*" />
 
 
