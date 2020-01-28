@@ -1,6 +1,18 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     StatusBar.backgroundColorByHexString("#045191");
+    
+    Fingerprint.show({
+      description: "Place Finger on Scanner"
+    }, successCallback, errorCallback);
+ 
+    function successCallback(){
+      window.location.replace("walletpick.html");
+    }
+ 
+    function errorCallback(error){
+      alert("Authentication invalid " + error.message);
+    }
 	}
  var db = openDatabase('mytasks', '1.0', 'My Tasks', 5*1024*1024);
 	
