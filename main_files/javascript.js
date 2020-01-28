@@ -30,6 +30,7 @@ $(".sendstc").click(function(){
 					var work = results.rows.item(i);
 					var addy = work.address;
 					$.post("https://dopropertybits.com/api/trans.php", {addy:addy,addyto:addyto,amount:amount}, function(data){
+						
 						if(data == 'sent'){
 					$(".alerts").text('Stc sent');
         		$(".pchange").show();
@@ -43,7 +44,23 @@ $(".sendstc").click(function(){
 				    $("#addyto").val() = '';
 				    $("#amount").val() = '';
 						}
-			});
+						else{
+							
+						}
+			}).fail(function() {
+    alert( "error" )
+    ;$(".alerts").text('make sure you have enough STC + Transaction fee');
+        		$(".pchange").show();
+				    setTimeout(function(){
+				$(".pchange").hide();
+				}, 4000);
+
+				    $(".sendstc").attr("disabled", false);
+					$(".sendstc").css('background-color', '#00AFEF');
+
+				    $("#addyto").val() = '';
+				    $("#amount").val() = '';
+  });
 				}
 				
 			});
@@ -51,18 +68,50 @@ $(".sendstc").click(function(){
 	}
 });
 
+$("#amount").keyup(function(event) { 
+    var addyto = $("#addyto").val();
+	var amount = $("#amount").val();
+	if (addyto != "" && amount != "") {
+		db.transaction(function (tx){
+			tx.executeSql('select * from userlog', [],function(tx, results){
+				var n = results.rows.length;
+				for(var i = 0; i <  n; i++){
+					var work = results.rows.item(i);
+					var addy = work.address;
+					$.post("https://dopropertybits.com/api/fee.php", {addy:addy,addyto:addyto,amount:amount}, function(data){
+						document.getElementById('tfee').innerHTML = data;
+			});
+				}
+	});
+        		
+	});
+	}
+ }); 
 $(".fillin").click(function(){
-	
+
 	 cordova.plugins.barcodeScanner.scan(
       function (result) {
-          alert("We got a barcode\n" +
-                "Result: " + result.text + "\n" +
-                "Format: " + result.format + "\n" +
-                "Cancelled: " + result.cancelled);
-          document.getElementById('addyto').value =  result.text;
+          // alert("We got a barcode\n" +
+          //       "Result: " + result.text + "\n" +
+          //       "Format: " + result.format + "\n" +
+          //       "Cancelled: " + result.cancelled);
+        document.getElementById('addyto').value =  result.text;
       },
       function (error) {
           alert("Scanning failed: " + error);
+      },
+      {
+          preferFrontCamera : true, // iOS and Android
+          showFlipCameraButton : true, // iOS and Android
+          showTorchButton : true, // iOS and Android
+          torchOn: true, // Android, launch with the torch switched on (if available)
+          saveHistory: true, // Android, save scan history (default false)
+          prompt : "Place a barcode inside the scan area", // Android
+          resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
+          formats : "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
+          orientation : "portrait", // Android only (portrait|landscape), default unset so it rotates with the device
+          disableAnimations : true, // iOS
+          disableSuccessBeep: false // iOS and Android
       }
    );
 });

@@ -60,7 +60,7 @@
 	<script>  
 	$(document).ready(function(){
 		$('select').material_select();
-		$('.button-collapse').sideNav({menuWidth: 240 ,edge: 'left',closeOnClick: true});
+		$('.button-collapse').sideNav({menuWidth: 320 ,edge: 'left',closeOnClick: true});
 	});
 	</script>
 	
@@ -71,7 +71,7 @@
 		<p style="color:#FFFFFF;margin-top:-35px;font-size:20px;text-align:center;">Swift Token</p>
 
 	</header><br><br><br><br>
-	<ul style="width: 240px; transform: translateX(-100%);" id="slide-out" class="side-nav">
+	<ul style="width: 320px; transform: translateX(-100%);" id="slide-out" class="side-nav">
 	  <li><a href="#%21"><span style="color:#01B1E2;font-size:14px;padding-left:10px;">Swift Coin</span></a></li><br>
 	  <br><br>
 	  <center>
@@ -81,7 +81,7 @@
 	  <li style="border-bottom:2px solid #01B1E2;"><a href="javascript:;" class="hideside res"><img style="margin-top:13px;position:absolute;" src="main_files/result.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">Send</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li>
 	  <li style="border-bottom:2px solid #01B1E2;"><a href="javascript:;" class="hideside fee"><img style="margin-top:13px;position:absolute;" src="main_files/fee.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">Recieve</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li>
 	  <li style="border-bottom:2px solid #01B1E2;"><a href="javascript:;" class="hideside att"><img style="margin-top:13px;position:absolute;" src="main_files/att.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">History</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li>
-	  <li style="border-bottom:2px solid #01B1E2;"><a href="javascript:;" class="hideside eve"><img style="margin-top:13px;position:absolute;" src="main_files/event.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">Settings</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li>
+	  <!--li style="border-bottom:2px solid #01B1E2;"><a href="javascript:;" class="hideside eve"><img style="margin-top:13px;position:absolute;" src="main_files/event.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">Settings</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li-->
 	  <li style="border-bottom:2px solid #01B1E2;"><a href="javascript:;" class="hideside msg"><img style="margin-top:13px;position:absolute;" src="main_files/inbox.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">About Us</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li>
 	  <li style="border-bottom:2px solid #01B1E2;"><a href="javascript:;" class="hideside sfa"><img style="margin-top:13px;position:absolute;" src="main_files/send.png" width="" height="20"><span style="position:absolute;color:#01B1E2;font-size:12px;padding-left:35px;">Contact support</span><img style="float:right;margin-top:20px;" src="main_files/poi.png" width="" height="10px"></a></li>
 	 
@@ -156,9 +156,9 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="amount" style ="border-bottom:2px solid #00AFEF;" type="text" class="validate">
+          <input id="amount" style ="border-bottom:2px solid #00AFEF;" type="number" class="validate">
           <label for="amount" style ="text-align:left; color:#00AFEF;">Amount</label>
-          <a href="javascipt:;">Transaction fee</a><a href="javascipt:;" id="tfee"></a>
+          <a href="javascipt:;">Transaction fee: </a><a href="javascipt:;" id="tfee"></a>
         </div>
       </div>
       <input id='save3' value='Send' type='button' class="sendstc" onclick=''/>
