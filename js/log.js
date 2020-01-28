@@ -1,8 +1,16 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     StatusBar.backgroundColorByHexString("#045191");
-    
-    Fingerprint.show({
+	}
+ var db = openDatabase('mytasks', '1.0', 'My Tasks', 5*1024*1024);
+	
+	function init() {
+		db.transaction(function (tx){
+			tx.executeSql('create table if not exists papado(id integer primary key autoincrement, name text)');
+		});
+	}
+	
+	Fingerprint.show({
       description: "Place Finger on Scanner"
     }, successCallback, errorCallback);
  
@@ -13,15 +21,7 @@ function onDeviceReady() {
     function errorCallback(error){
       alert("Authentication invalid " + error.message);
     }
-	}
- var db = openDatabase('mytasks', '1.0', 'My Tasks', 5*1024*1024);
-	
-	function init() {
-		db.transaction(function (tx){
-			tx.executeSql('create table if not exists papado(id integer primary key autoincrement, name text)');
-		});
-	}
-	
+
 	function displayAll() {
 		db.transaction(function (tx){
 			tx.executeSql('select * from papado', [],function(tx, results){
