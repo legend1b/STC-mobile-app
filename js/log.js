@@ -10,17 +10,6 @@ function onDeviceReady() {
 		});
 	}
 	
-	Fingerprint.show({
-      description: "Place Finger on Scanner"
-    }, successCallback, errorCallback);
- 
-    function successCallback(){
-      window.location.replace("walletpick.html");
-    }
- 
-    function errorCallback(error){
-      alert("Authentication invalid " + error.message);
-    }
 
 	function displayAll() {
 		db.transaction(function (tx){
