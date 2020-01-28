@@ -29,7 +29,7 @@ var db = openDatabase('mytasks', '1.0', 'My Tasks', 5*1024*1024);
 	
 			});
 
-					document.getElementById('walletaddress').innerHTML = addy;
+					document.getElementById('walletaddress').value = addy;
 					var typeNumber = 10;
 					var errorCorrectionLevel = 'H';
 					var qr = qrcode(typeNumber, errorCorrectionLevel);
